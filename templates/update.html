@@ -51,6 +51,104 @@
                     <option value="Done" {% if user[4] == 'Done' %} selected {% endif %}>Done</option>
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="status3" class="form-label">Task 3</label>
+                <select class="form-select" id="status3" name="status3">
+                    <option value="To Do" {% if user[5] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[5] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div> 
+            <div class="mb-3">
+                <label for="status4" class="form-label">Task 4</label>
+                <select class="form-select" id="status4" name="status4">
+                    <option value="To Do" {% if user[6] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[6] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>            
+            <div class="mb-3">
+                <label for="status5" class="form-label">Task 5</label>
+                <select class="form-select" id="status5" name="status5">
+                    <option value="To Do" {% if user[7] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[7] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="status6" class="form-label">Task 6</label>
+                <select class="form-select" id="status6" name="status6">
+                    <option value="To Do" {% if user[8] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[8] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="status7" class="form-label">Task 7</label>
+                <select class="form-select" id="status7" name="status7">
+                    <option value="To Do" {% if user[9] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[9] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div> 
+            <div class="mb-3">
+                <label for="status8" class="form-label">Task 8</label>
+                <select class="form-select" id="status8" name="status8">
+                    <option value="To Do" {% if user[10] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[10] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>            
+            <div class="mb-3">
+                <label for="status9" class="form-label">Task 9</label>
+                <select class="form-select" id="status9" name="status9">
+                    <option value="To Do" {% if user[11] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[11] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>   
+            <div class="mb-3">
+                <label for="status10" class="form-label">Task 10</label>
+                <select class="form-select" id="status10" name="status10">
+                    <option value="To Do" {% if user[12] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[12] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="status11" class="form-label">Task 11</label>
+                <select class="form-select" id="status11" name="status11">
+                    <option value="To Do" {% if user[13] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[13] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div> 
+            <div class="mb-3">
+                <label for="status12" class="form-label">Task 12</label>
+                <select class="form-select" id="status12" name="status12">
+                    <option value="To Do" {% if user[14] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[14] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>            
+            <div class="mb-3">
+                <label for="status13" class="form-label">Task 13</label>
+                <select class="form-select" id="status13" name="status13">
+                    <option value="To Do" {% if user[15] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[15] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>   
+            <div class="mb-3">
+                <label for="status14" class="form-label">Task 14</label>
+                <select class="form-select" id="status14" name="status14">
+                    <option value="To Do" {% if user[15] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[15] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="status15" class="form-label">Task 15</label>
+                <select class="form-select" id="status15" name="status15">
+                    <option value="To Do" {% if user[17] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[17] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>    
+            <div class="mb-3">
+                <label for="status16" class="form-label">Task 16</label>
+                <select class="form-select" id="status16" name="status16">
+                    <option value="To Do" {% if user[18] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[18] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
+            </div>                                                               
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
         <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
