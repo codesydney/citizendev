@@ -12,11 +12,17 @@
         <form method="post">
             <div class="mb-3">
                 <label for="status1" class="form-label">Status of Task 1</label>
-                <input type="text" class="form-control" id="status1" name="status1" value="{{ user[3] }}">
+                <select class="form-select" id="status1" name="status1">
+                    <option value="To Do" {% if user[3] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[3] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="status2" class="form-label">Status of Task 2</label>
-                <input type="text" class="form-control" id="status2" name="status2" value="{{ user[4] }}">
+                <select class="form-select" id="status2" name="status2">
+                    <option value="To Do" {% if user[4] == 'To Do' %} selected {% endif %}>To Do</option>
+                    <option value="Done" {% if user[4] == 'Done' %} selected {% endif %}>Done</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
