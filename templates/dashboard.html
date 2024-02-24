@@ -12,21 +12,23 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Username</th>
-                    <th>Password</th>
                     <th>Task 1</th>
                     <th>Task 2</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+                {% for user in users %}
                 <tr>
-                    <td>{{ user[0] }}</td>
                     <td>{{ user[1] }}</td>
-                    <td>{{ user[2] }}</td>
                     <td>{{ user[3] }}</td>
                     <td>{{ user[4] }}</td>
+                    <td>
+                        <a href="{{ url_for('update', username=user[1]) }}" class="btn btn-primary">Update</a>
+                    </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
         <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>

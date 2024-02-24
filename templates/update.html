@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Update Status for {{ username }}</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label for="status1" class="form-label">Status of Task 1</label>
+                <input type="text" class="form-control" id="status1" name="status1" value="{{ user[3] }}">
+            </div>
+            <div class="mb-3">
+                <label for="status2" class="form-label">Status of Task 2</label>
+                <input type="text" class="form-control" id="status2" name="status2" value="{{ user[4] }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+        <br>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+</body>
+</html>
