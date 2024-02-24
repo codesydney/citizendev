@@ -9,11 +9,33 @@
         .small-row td {
             font-size: 80%; /* You can adjust the font size as needed */
         }
-    </style>
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subheader {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
+            height: auto;
+        }
+    </style>    
 </head>
 <body>
-    <div class="container">
-        <h2>Welcome, {{ username }}</h2>
+<div class="container">
+    <div class="header">
+        <img src="/static/logo.png" alt="Logo" class="logo">
+        <h1>CitizenDevs</h1>
+    </div>
+    <div class="subheader">
+        <h2>Dashboard</h2>
+    </div>  
+    <br/>
+    <h5>CitizenDev {{ username }}</h5>
         <table class="table">
             <thead>
                 <tr>

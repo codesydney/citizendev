@@ -5,10 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subheader {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
+            height: auto;
+        }
+    </style>    
 </head>
 <body>
     <div class="container">
-        <h2>Signup</h2>
+        <div class="header">
+            <img src="/static/logo.png" alt="Logo" class="logo">
+            <h1>CitizenDevs</h1>
+        </div>
+        <div class="subheader">
+            <h2>Signup</h2>
+        </div>        
         {% if error %}
             <div class="alert alert-danger" role="alert">
                 Invalid or duplicate username or password!
