@@ -20,20 +20,20 @@
             max-width: 150px;
             height: auto;
         }
-    </style>
+    </style>    
 </head>
 <body>
     <div class="container">
         <div class="header">
-	    <img src="/citizendev/static/logo.png" alt="Logo" class="logo">
+            <img src="/static/bluehex.png" alt="Logo" class="logo">
             <h1>CitizenDevs</h1>
         </div>
         <div class="subheader">
-            <h2>Login</h2>
-        </div>
+            <h2>Signup</h2>
+        </div>        
         {% if error %}
             <div class="alert alert-danger" role="alert">
-                Invalid username or password!
+                Invalid or duplicate username or password!
             </div>
         {% endif %}
         <form method="post">
@@ -45,8 +45,8 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="{{ url_for('signup') }}" class="btn btn-link">Sign Up</a>
+            <button type="submit" class="btn btn-primary">Signup</button>
+            <a href="{{ url_for('login') }}" class="btn btn-link">Login</a>
         </form>
     </div>
 </body>
