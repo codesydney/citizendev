@@ -7,10 +7,10 @@ app.secret_key = "your_secret_key"  # Change this to a secure random key
 bootstrap = Bootstrap(app)
 
 # Connect to the SQLite database
-conn = sqlite3.connect('citizendevs.db', check_same_thread=False)
+conn = sqlite3.connect('./citizendevs.db', check_same_thread=False)
 c = conn.cursor()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/app', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -24,7 +24,7 @@ def login():
             return render_template('login.html', error=True)
     return render_template('login.html', error=False)
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/app/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         username = request.form['username']
@@ -55,7 +55,7 @@ def signup():
             return render_template('signup.html', error=True)
     return render_template('signup.html', error=False)
 
-@app.route('/dashboard')
+@app.route('/app/dashboard')
 def dashboard():
     if 'username' in session:
         username = session['username']
@@ -64,7 +64,7 @@ def dashboard():
         return render_template('dashboard.html', username=username, users=users)
     return redirect(url_for('login'))
 
-@app.route('/update/<username>', methods=['GET', 'POST'])
+@app.route('/app/update/<username>', methods=['GET', 'POST'])
 def update(username):
     if request.method == 'POST':
         status1 = request.form['status1']
@@ -91,10 +91,12 @@ def update(username):
         user = c.fetchone()
         return render_template('update.html', username=username, user=user)
 
-@app.route('/logout')
+@app.route('/app/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)
+else:
+    application = app
