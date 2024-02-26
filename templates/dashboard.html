@@ -28,8 +28,8 @@
 <body>
 <div class="container">
     <div class="header">
-        <img src="/citizendev/static/logo.png" alt="Logo" class="logo">
-        <h1>CitizenDevs</h1>
+        <img src="/citizendev/static/citizendevlogo.png" alt="Logo" class="logo">
+        <h1>CitizenDev</h1>
     </div>
     <div class="subheader">
         <h2>Dashboard</h2>
@@ -55,34 +55,62 @@
                     <th>PY4E13</th>
                     <th>PY4E14</th>
                     <th>PY4E15</th>
-                    <th>PY4E16</th>                                                                                                                                            
+                    <th>PY4E16</th>  
+                    <th>PY4E17</th>  
+                    <th>DJ4E1</th>
+                    <th>DJ4E2</th>
+                    <th>DJ4E3</th>
+                    <th>DJ4E4</th>
+                    <th>DJ4E5</th>
+                    <th>DJ4E6</th>
+                    <th>DJ4E7</th>
+                    <th>DJ4E8</th>
+                    <th>DJ4E9</th>
+                    <th>DJ4E10</th>
+                    <th>DJ4E11</th>
+                    <th>DJ4E12</th>
+                    <th>DJ4E13</th>
+                    <th>DJ4E14</th>
+                    <th>DJ4E15</th>
+                    <th>DJ4E16</th>
+                    <th>DJ4E17</th>
+                    <th>DJ4E18</th>
+                    <th>DJ4E19</th>
+                    <th>DJ4E20</th>
+                    <th>DJ4E21</th>
+                    <th>DJ4E22</th>
+                    <th>DJ4E23</th>
+                    <th>DJ4E24</th>
+                    <th>DJ4E25</th>
+                    <th>DJ4E26</th>
+                    <th>DJ4E27</th>
+                    <th>DJ4E28</th>
+                    <th>DJ4E29</th>
+                    <th>DJ4E30</th>
+                    <th>DJ4E31</th>
+                    <th>DJ4E32</th>
+                    <th>DJ4E33</th>
+                    <th>DJ4E34</th>
+                    <th>DJ4E35</th>
+                    <th>DJ4E36</th>
+                    <th>DJ4E37</th>
+                    <th>DJ4E38</th>
+                    <th>DJ4E39</th>
+                    <th>DJ4E40</th>                    
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {% for user in users %}
-                <tr class="small-row"> <!-- Add the class here -->
-                    <td>{{ user[1] }}</td>
-                    <td>{{ user[3] }}</td>
-                    <td>{{ user[4] }}</td>
-                    <td>{{ user[5] }}</td>
-                    <td>{{ user[6] }}</td>
-                    <td>{{ user[7] }}</td>
-                    <td>{{ user[8] }}</td>                    
-                    <td>{{ user[9] }}</td>
-                    <td>{{ user[10] }}</td>
-                    <td>{{ user[11] }}</td>
-                    <td>{{ user[12] }}</td>
-                    <td>{{ user[13] }}</td>
-                    <td>{{ user[14] }}</td>
-                    <td>{{ user[15] }}</td>
-                    <td>{{ user[16] }}</td>
-                    <td>{{ user[17] }}</td>
-                    <td>{{ user[18] }}</td>
-                    <td>
-                        <a href="{{ url_for('update', username=user[1]) }}" class="btn btn-primary">Update</a>
-                    </td>
-                </tr>
+                    <tr class="small-row"> <!-- Add the class here -->
+                        <td>{{ user[1] }}</td>
+                        {% for i in range(3, 60) %}
+                            <td>{{ user[i] }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href="{{ url_for('update', username=user[1]) }}" class="btn btn-primary">Update</a>
+                        </td>
+                    </tr>    
                 {% endfor %}
             </tbody>
         </table>
