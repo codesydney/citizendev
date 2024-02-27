@@ -13,4 +13,8 @@ jobs:
         username: citizendev
         key: ${{ secrets.CLOUD_KEY }}
         port: 22
-        script: date > flag
+        script: |
+          cd htdocs/citizendev.code.sydney/citizendev
+          git pull
+          cd
+          date > most_recent_deploy
