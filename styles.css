@@ -41,7 +41,11 @@ div {
 }
 
 .cs-logo {
-				padding-top: 50px;
+  padding-top: 50px;
+}
+
+.cs-link {
+  text-decoration: none;
 }
 
 .button {
