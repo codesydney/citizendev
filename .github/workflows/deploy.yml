@@ -13,4 +13,4 @@ jobs:
         username: citizendev
         key: ${{ secrets.CLOUD_KEY }}
         port: 22
-        script: ls -la
+        script: date > flag
