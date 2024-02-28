@@ -50,6 +50,10 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   cursor: pointer;
 }
 
+i {
+  font-size:3rem;
+}
+
 .button {
   background-color: #fff;
   border: 1px solid #dee2e6;
