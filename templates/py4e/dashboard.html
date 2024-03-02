@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicEwidth, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .small-row td {
             font-size: 80%; /* You can adjust the font size as needed */
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Show ellipsis for overflow text */
         }
         .header {
             text-align: center;
@@ -22,6 +25,13 @@
             margin: 0 auto;
             max-width: 150px;
             height: auto;
+        }
+        /* Custom CSS for status values */
+        .done {
+            color: green;
+        }
+        .todo {
+            color: red;
         }
     </style>    
 </head>
@@ -40,72 +50,18 @@
             <thead>
                 <tr>
                     <th>Username</th>
-                    <th>PY4E1</th>
-                    <th>PY4E2</th>
-                    <th>PY4E3</th>
-                    <th>PY4E4</th>
-                    <th>PY4E5</th>
-                    <th>PY4E6</th>
-                    <th>PY4E7</th>
-                    <th>PY4E8</th>
-                    <th>PY4E9</th>
-                    <th>PY4E10</th>
-                    <th>PY4E11</th>
-                    <th>PY4E12</th>
-                    <th>PY4E13</th>
-                    <th>PY4E14</th>
-                    <th>PY4E15</th>
-                    <th>PY4E16</th>  
-                    <th>PY4E17</th>  
-                    <th>DJ4E1</th>
-                    <th>DJ4E2</th>
-                    <th>DJ4E3</th>
-                    <th>DJ4E4</th>
-                    <th>DJ4E5</th>
-                    <th>DJ4E6</th>
-                    <th>DJ4E7</th>
-                    <th>DJ4E8</th>
-                    <th>DJ4E9</th>
-                    <th>DJ4E10</th>
-                    <th>DJ4E11</th>
-                    <th>DJ4E12</th>
-                    <th>DJ4E13</th>
-                    <th>DJ4E14</th>
-                    <th>DJ4E15</th>
-                    <th>DJ4E16</th>
-                    <th>DJ4E17</th>
-                    <th>DJ4E18</th>
-                    <th>DJ4E19</th>
-                    <th>DJ4E20</th>
-                    <th>DJ4E21</th>
-                    <th>DJ4E22</th>
-                    <th>DJ4E23</th>
-                    <th>DJ4E24</th>
-                    <th>DJ4E25</th>
-                    <th>DJ4E26</th>
-                    <th>DJ4E27</th>
-                    <th>DJ4E28</th>
-                    <th>DJ4E29</th>
-                    <th>DJ4E30</th>
-                    <th>DJ4E31</th>
-                    <th>DJ4E32</th>
-                    <th>DJ4E33</th>
-                    <th>DJ4E34</th>
-                    <th>DJ4E35</th>
-                    <th>DJ4E36</th>
-                    <th>DJ4E37</th>
-                    <th>DJ4E38</th>
-                    <th>DJ4E39</th>
-                    <th>DJ4E40</th>                    
+                    {% for num in range(1, 58) %}
+                        <th>{{ num }}</th>
+                    {% endfor %}
                     <th>Action</th>
                 </tr>
-            </thead>
+            </thead>                 
             <tbody>
                 {% for user in users %}
                     <tr class="small-row"> <!-- Add the class here -->
                         <td>{{ user[1] }}</td>
                         {% for i in range(3, 60) %}
-                            <td>{{ user[i] }}</td>
+                            <td class="{% if user[i] == 'Done' %}done{% elif user[i] == 'To Do' %}todo{% endif %}">{{ user[i] }}</td>
                         {% endfor %}
                         <td>
                             <a href="{{ url_for('update', username=user[1]) }}" class="btn btn-primary">Update</a>

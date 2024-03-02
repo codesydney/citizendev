@@ -35,28 +35,20 @@
             <h2>Update Status</h2>
         </div>  
         <br/>
-        <h5>CitizenDev {{ username }}</h5>        
+        <h5>CitizenDev {{ username }}</h5>                
         <form method="post">
-            {% for i in range(1, 18) %}
+            {% for i in range(1, 58) %}
                 <div class="mb-3">
-                    <label for="status{{ i }}" class="form-label">PY4E{{ i }}</label>
+                    <label for="status{{ i }}" class="form-label">{{ i }}</label>
                     <select class="form-select" id="status{{ i }}" name="status{{ i }}">
                         <option value="To Do" {% if user[i + 2] == 'To Do' %} selected {% endif %}>To Do</option>
                         <option value="Done" {% if user[i + 2] == 'Done' %} selected {% endif %}>Done</option>
                     </select>
                 </div>
-            {% endfor %}                                                      
-            {% for i in range(18, 58) %}
-            <div class="mb-3">
-                <label for="status{{ i }}" class="form-label">DJ4E{{ i-17 }}</label>
-                <select class="form-select" id="status{{ i }}" name="status{{ i }}">
-                    <option value="To Do" {% if user[i-15] == 'To Do' %} selected {% endif %}>To Do</option>
-                    <option value="Done" {% if user[i-15] == 'Done' %} selected {% endif %}>Done</option>
-                </select>
-            </div>
             {% endfor %}
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
+                
         <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
         <br>
         <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
