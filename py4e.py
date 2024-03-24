@@ -36,96 +36,14 @@ def signup():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        PY4E1 = PY4E2 = PY4E3 = PY4E4 = PY4E5 = PY4E6 = PY4E7 = PY4E8 = PY4E9 = (
-            PY4E10
-        ) = PY4E11 = PY4E12 = PY4E13 = PY4E14 = PY4E15 = PY4E16 = PY4E17 = "To Do"
-        DJ4E1 = DJ4E2 = DJ4E3 = DJ4E4 = DJ4E5 = DJ4E6 = DJ4E7 = DJ4E8 = DJ4E9 = (
-            DJ4E10
-        ) = DJ4E11 = DJ4E12 = DJ4E13 = DJ4E14 = DJ4E15 = DJ4E16 = DJ4E17 = DJ4E18 = (
-            DJ4E19
-        ) = DJ4E20 = DJ4E21 = DJ4E22 = DJ4E23 = DJ4E24 = DJ4E25 = DJ4E26 = DJ4E27 = (
-            DJ4E28
-        ) = DJ4E29 = DJ4E30 = DJ4E31 = DJ4E32 = DJ4E33 = DJ4E34 = DJ4E35 = DJ4E36 = (
-            DJ4E37
-        ) = DJ4E38 = DJ4E39 = DJ4E40 = "To Do"
-
+        initial_values = ["To Do" for _ in range(0, 57)]
+        query = "INSERT INTO user (username, password, last_update"
+        query += ", ".join([f"PY4E{i} = ?" for i in range(1, 18)])
+        query += ", "
+        query += ", ".join([f"DJ4E{i - 17} = ?" for i in range(18, 58)])
         try:
             current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            c.execute(
-                """
-                INSERT INTO user (username, password, PY4E1, PY4E2, PY4E3, PY4E4, PY4E5, PY4E6, PY4E7, PY4E8,
-                                PY4E9, PY4E10, PY4E11, PY4E12, PY4E13, PY4E14, PY4E15, PY4E16, PY4E17,
-                                DJ4E1, DJ4E2, DJ4E3, DJ4E4, DJ4E5, DJ4E6, DJ4E7, DJ4E8, DJ4E9, DJ4E10,
-                                DJ4E11, DJ4E12, DJ4E13, DJ4E14, DJ4E15, DJ4E16, DJ4E17, DJ4E18, DJ4E19,
-                                DJ4E20, DJ4E21, DJ4E22, DJ4E23, DJ4E24, DJ4E25, DJ4E26, DJ4E27, DJ4E28,
-                                DJ4E29, DJ4E30, DJ4E31, DJ4E32, DJ4E33, DJ4E34, DJ4E35, DJ4E36, DJ4E37,
-                                DJ4E38, DJ4E39, DJ4E40, last_update)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-                (
-                    username,
-                    password,
-                    PY4E1,
-                    PY4E2,
-                    PY4E3,
-                    PY4E4,
-                    PY4E5,
-                    PY4E6,
-                    PY4E7,
-                    PY4E8,
-                    PY4E9,
-                    PY4E10,
-                    PY4E11,
-                    PY4E12,
-                    PY4E13,
-                    PY4E14,
-                    PY4E15,
-                    PY4E16,
-                    PY4E17,
-                    DJ4E1,
-                    DJ4E2,
-                    DJ4E3,
-                    DJ4E4,
-                    DJ4E5,
-                    DJ4E6,
-                    DJ4E7,
-                    DJ4E8,
-                    DJ4E9,
-                    DJ4E10,
-                    DJ4E11,
-                    DJ4E12,
-                    DJ4E13,
-                    DJ4E14,
-                    DJ4E15,
-                    DJ4E16,
-                    DJ4E17,
-                    DJ4E18,
-                    DJ4E19,
-                    DJ4E20,
-                    DJ4E21,
-                    DJ4E22,
-                    DJ4E23,
-                    DJ4E24,
-                    DJ4E25,
-                    DJ4E26,
-                    DJ4E27,
-                    DJ4E28,
-                    DJ4E29,
-                    DJ4E30,
-                    DJ4E31,
-                    DJ4E32,
-                    DJ4E33,
-                    DJ4E34,
-                    DJ4E35,
-                    DJ4E36,
-                    DJ4E37,
-                    DJ4E38,
-                    DJ4E39,
-                    DJ4E40,
-                    current_timestamp,
-                ),
-            )
-
+            c.execute(query, (username, password, current_timestamp, *initial_values))
             conn.commit()
             session["username"] = username
             return redirect(url_for("dashboard"))
