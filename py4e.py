@@ -37,17 +37,16 @@ def signup():
         username = request.form["username"]
         password = request.form["password"]
         initial_values = ["To Do" for _ in range(57)]
-        query = "INSERT INTO user (username, password, last_update, "
-        query += ", ".join([f"PY4E{i}" for i in range(1, 18)])
-        query += ", "
-        query += ", ".join([f"DJ4E{i}" for i in range(1, 41)])
-        query += (
-            ") VALUES (?, ?, ?, "
-            + ", ".join(["?" for _ in range(17)])
-            + ", "
-            + ", ".join(["?" for _ in range(40)])
-            + ")"
-        )
+
+        query = "INSERT INTO user (username, password, last_update"
+        for i in range(1, 18):
+            query += f", PY4E{i}"
+        for i in range(1, 41):
+            query += f", DJ4E{i}"
+        query += ") VALUES (?, ?, ?"
+        for _ in range(57):
+            query += ", ?"
+        query += ")"
 
         try:
             current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
