@@ -36,11 +36,19 @@ def signup():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        initial_values = ["To Do" for _ in range(0, 57)]
-        query = "INSERT INTO user (username, password, last_update"
-        query += ", ".join([f"PY4E{i} = ?" for i in range(1, 18)])
+        initial_values = ["To Do" for _ in range(57)]
+        query = "INSERT INTO user (username, password, last_update, "
+        query += ", ".join([f"PY4E{i}" for i in range(1, 18)])
         query += ", "
-        query += ", ".join([f"DJ4E{i - 17} = ?" for i in range(18, 58)])
+        query += ", ".join([f"DJ4E{i}" for i in range(1, 41)])
+        query += (
+            ") VALUES (?, ?, ?, "
+            + ", ".join(["?" for _ in range(17)])
+            + ", "
+            + ", ".join(["?" for _ in range(40)])
+            + ")"
+        )
+
         try:
             current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             c.execute(query, (username, password, current_timestamp, *initial_values))
