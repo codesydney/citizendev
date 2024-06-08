@@ -36,15 +36,13 @@ def signup():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        initial_values = ["To Do" for _ in range(57)]
+        initial_values = ["To Do" for _ in range(17)]
 
         query = "INSERT INTO user (username, password, last_update"
         for i in range(1, 18):
             query += f", PY4E{i}"
-        for i in range(1, 41):
-            query += f", DJ4E{i}"
         query += ") VALUES (?, ?, ?"
-        for _ in range(57):
+        for _ in range(17):
             query += ", ?"
         query += ")"
 
@@ -76,16 +74,9 @@ def update(username):
         status_values = [
             request.form[f"status{i}"] for i in range(1, 18)
         ]  # Status values for PY4E1 to PY4E17
-        status_values += [
-            request.form[f"status{i}"] for i in range(18, 58)
-        ]  # Status values for DJ4E1 to DJ4E40
 
         query = "UPDATE user SET "
         query += ", ".join([f"PY4E{i} = ?" for i in range(1, 18)])
-        query += ", "  # Add comma separator
-        query += ", ".join(
-            [f"DJ4E{i - 17} = ?" for i in range(18, 58)]
-        )  # DJ4E1 to DJ4E40
         query += ", last_update = ?"  # Add last_update column
         query += " WHERE username = ?"
 

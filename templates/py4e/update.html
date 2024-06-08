@@ -36,8 +36,9 @@
         </div>  
         <br/>
         <h5>CitizenDev {{ username }}</h5>                
+
         <form method="post">
-            {% for i in range(1, 58) %}
+            {% for i in range(1, 18) %}
                 <div class="mb-3">
                     <label for="status{{ i }}" class="form-label">{{ lessons[i-1] }}</label>
                     <select class="form-select" id="status{{ i }}" name="status{{ i }}">
@@ -47,7 +48,7 @@
                 </div>
             {% endfor %}
             <button type="submit" class="btn btn-primary">Update</button>
-        </form>
+        </form>        
                 
         <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
         <br>

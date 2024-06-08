@@ -1,57 +1,17 @@
-1 PY4E Lesson 1
-2 PY4E Lesson 2
-3 PY4E Lesson 3
-4 PY4E Lesson 4
-5 PY4E Lesson 5
-6 PY4E Lesson 6
-7 PY4E Lesson 7
-8 PY4E Lesson 8
-9 PY4E Lesson 9
-10 PY4E Lesson 10
-11 PY4E Lesson 11
-12 PY4E Lesson 12
-13 PY4E Lesson 13
-14 PY4E Lesson 14
-15 PY4E Lesson 15
-16 PY4E Lesson 16
-17 PY4E Lesson 17
-18 DJ4E Lesson 1
-19 DJ4E Lesson 2
-20 DJ4E Lesson 3
-21 DJ4E Lesson 4
-22 DJ4E Lesson 5
-23 DJ4E Lesson 6
-24 DJ4E Lesson 7
-25 DJ4E Lesson 8
-26 DJ4E Lesson 9
-27 DJ4E Lesson 10
-28 DJ4E Lesson 11
-29 DJ4E Lesson 12
-30 DJ4E Lesson 13
-31 DJ4E Lesson 14
-32 DJ4E Lesson 15
-33 DJ4E Lesson 16
-34 DJ4E Lesson 17
-35 DJ4E Lesson 18
-36 DJ4E Lesson 19
-37 DJ4E Lesson 20
-38 DJ4E Lesson 21
-39 DJ4E Lesson 22
-40 DJ4E Lesson 23
-41 DJ4E Lesson 24
-42 DJ4E Lesson 25
-43 DJ4E Lesson 26
-44 DJ4E Lesson 27
-45 DJ4E Lesson 28
-46 DJ4E Lesson 29
-47 DJ4E Lesson 30
-48 DJ4E Lesson 31
-49 DJ4E Lesson 32
-50 DJ4E Lesson 33
-51 DJ4E Lesson 34
-52 DJ4E Lesson 35
-53 DJ4E Lesson 36
-54 DJ4E Lesson 37
-55 DJ4E Lesson 38
-56 DJ4E Lesson 39
-57 DJ4E Lesson 40
+PY4E Lesson 1 Getting Started
+PY4E Lesson 2 Why Program?
+PY4E Lesson 3 Variables, expressions and statements
+PY4E Lesson 4 Conditional Execution
+PY4E Lesson 5 Functions
+PY4E Lesson 6 Loops and Iterations
+PY4E Lesson 7 Strings
+PY4E Lesson 8 Files
+PY4E Lesson 9 Lists
+PY4E Lesson 10 Dictionaries
+PY4E Lesson 11 Tuples
+PY4E Lesson 12 Regular Expressions
+PY4E Lesson 13 Network Programming
+PY4E Lesson 14 Using Web Services
+PY4E Lesson 15 Object-Oriented Programming
+PY4E Lesson 16 Databases
+PY4E Lesson 17 Data Visualization

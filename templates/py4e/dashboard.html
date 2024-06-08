@@ -52,21 +52,20 @@
         <thead>
             <tr>
                 <th>Username</th>
-                {% for num in range(1, 58) %}
+                {% for num in range(1, 18) %}
                     <th>{{ num }}</th>
                 {% endfor %}
                 <th>Action</th>
             </tr>
             <div class="col-md-12">
-                <a href="https://www.py4e.com/lessons" target="_blank" style="font-size: 10px;">PY4E</a> 
-                <a href="https://www.dj4e.com/lessons" target="_blank" style="font-size: 10px;">DJ4E</a>
+                <a href="https://www.py4e.com/lessons" target="_blank" style="font-size: 12px;">PY4E</a> 
             </div>
         </thead>                 
         <tbody>
             {% for user in users %}
                 <tr class="small-row"> <!-- Add the class here -->
                     <td>{{ user[1] }}</td>
-                    {% for i in range(3, 60) %}
+                    {% for i in range(3, 20) %}
                         <td class="{% if user[i] == 'Done' %}status-done{% elif user[i] == 'To Do' %}status-todo{% endif %}"></td>
                     {% endfor %}
                     <td>
