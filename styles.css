@@ -46,7 +46,7 @@ div {
 }
 
 a, a:link, a:visited, a:focus, a:hover, a:active{
-  color: #000;
+  color: #0056f5;
   text-decoration:none !important;
   cursor: pointer;
 }
