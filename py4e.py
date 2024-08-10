@@ -10,7 +10,7 @@ bootstrap = Bootstrap(app)
 
 # Connect to the SQLite database
 # conn = sqlite3.connect("./citizendevs.db", check_same_thread=False)
-conn = sqlite3.connect("/Users/engramarbollas/Projects/citizendev/citizendevs.db", check_same_thread=False)
+conn = sqlite3.connect("./citizendevs.db", check_same_thread=False)
 c = conn.cursor()
 
 
