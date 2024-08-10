@@ -9,7 +9,8 @@ app.secret_key = "your_secret_key"  # Change this to a secure random key
 bootstrap = Bootstrap(app)
 
 # Connect to the SQLite database
-conn = sqlite3.connect("./citizendevs.db", check_same_thread=False)
+# conn = sqlite3.connect("./citizendevs.db", check_same_thread=False)
+conn = sqlite3.connect("/Users/engramarbollas/Projects/citizendev/citizendevs.db", check_same_thread=False)
 c = conn.cursor()
 
 
