@@ -69,7 +69,7 @@
             {% for user in users %}
                 <tr class="small-row"> <!-- Add the class here -->
                     <td>{{ user[1] }}</td>
-                    {% for i in range(2, 19) %}
+                    {% for i in range(3, 20) %}
                         <td class="{% if user[i] == 'Done' %}status-done{% elif user[i] == 'To Do' %}status-todo{% endif %}"></td>
                     {% endfor %}
                     <td>
