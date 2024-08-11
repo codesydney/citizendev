@@ -1,47 +1,36 @@
 import sqlite3
 from datetime import datetime
-from flask import Flask, redirect, render_template, request, session, url_for, g
+
+from flask import Flask, redirect, render_template, request, session, url_for
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__, template_folder="./templates/py4e")
 app.secret_key = "your_secret_key"  # Change this to a secure random key
 bootstrap = Bootstrap(app)
 
-# Database configuration
-DATABASE = './citizendevs.db'
+# Connect to the SQLite database
+# conn = sqlite3.connect("./citizendevs.db", check_same_thread=False)
+conn = sqlite3.connect("./citizendevs.db", check_same_thread=False)
+c = conn.cursor()
 
-def get_db():
-    """Open a new database connection if there is none yet for the current application context."""
-    if 'db' not in g:
-        g.db = sqlite3.connect(DATABASE, check_same_thread=False)
-        g.db.row_factory = sqlite3.Row  # Allows access by column name
-    return g.db
-
-@app.teardown_appcontext
-def close_connection(exception):
-    """Close the database connection at the end of the request."""
-    db = g.pop('db', None)
-    if db is not None:
-        db.close()
 
 @app.route("/py4e", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        db = get_db()
-        cur = db.cursor()
-        cur.execute(
+        c.execute(
             "SELECT * FROM user WHERE username=? AND password=? ORDER BY last_update DESC",
             (username, password),
         )
-        user = cur.fetchone()
+        user = c.fetchone()
         if user:
             session["username"] = username
             return redirect(url_for("dashboard"))
         else:
             return render_template("login.html", error=True)
     return render_template("login.html", error=False)
+
 
 @app.route("/py4e/signup", methods=["GET", "POST"])
 def signup():
@@ -59,11 +48,9 @@ def signup():
         query += ")"
 
         try:
-            db = get_db()
-            cur = db.cursor()
             current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            cur.execute(query, (username, password, current_timestamp, *initial_values))
-            db.commit()
+            c.execute(query, (username, password, current_timestamp, *initial_values))
+            conn.commit()
             session["username"] = username
             return redirect(url_for("dashboard"))
         except sqlite3.IntegrityError:
@@ -71,16 +58,16 @@ def signup():
             return render_template("signup.html", error=True)
     return render_template("signup.html", error=False)
 
+
 @app.route("/py4e/dashboard")
 def dashboard():
     if "username" in session:
         username = session["username"]
-        db = get_db()
-        cur = db.cursor()
-        cur.execute("SELECT * FROM user ORDER BY last_update DESC")
-        users = cur.fetchall()
+        c.execute("SELECT * FROM user ORDER BY last_update DESC")
+        users = c.fetchall()
         return render_template("dashboard.html", username=username, users=users)
     return redirect(url_for("login"))
+
 
 @app.route("/py4e/update/<username>", methods=["GET", "POST"])
 def update(username):
@@ -98,29 +85,27 @@ def update(username):
         status_values.append(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         status_values.append(username)
 
-        db = get_db()
-        cur = db.cursor()
-        cur.execute(query, status_values)
-        db.commit()
+        c.execute(query, status_values)
+        conn.commit()
 
         return redirect(url_for("dashboard"))
     else:
         fn = "./lessons.txt"
-        with open(fn) as fh:
-            lessons = [line.rstrip() for line in fh.readlines()]
+        fh = open(fn)
+        lessons = [line.rstrip() for line in fh.readlines()]
 
-        db = get_db()
-        cur = db.cursor()
-        cur.execute("SELECT * FROM user WHERE username=?", (username,))
-        user = cur.fetchone()
+        c.execute("SELECT * FROM user WHERE username=?", (username,))
+        user = c.fetchone()
         return render_template(
             "update.html", username=username, user=user, lessons=lessons
         )
+
 
 @app.route("/py4e/logout")
 def logout():
     session.pop("username", None)
     return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
