@@ -119,6 +119,8 @@ def dashboard():
         # Close the database connection
         cur.close()
 
+        # Commenting out matplotlib plotting
+        '''
         # Plot the graph
         fig, ax = plt.subplots(figsize=(12, 6))
         bars = ax.bar(py4e_done_counts.keys(), py4e_done_counts.values(), color='#B6D0E2')
@@ -171,11 +173,13 @@ def dashboard():
         img_path = os.path.join('static', 'plot.png')
         plt.savefig(img_path)
         plt.close()
+        '''
 
-        # Render the dashboard with the plot
-        return render_template("dashboard.html", username=username, users=users, user_status=user_status, graph_url=url_for('static', filename='plot.png'))
+        # Render the dashboard without the plot
+        return render_template("dashboard.html", username=username, users=users, user_status=user_status)
 
-    return redirect(url_for("login")) 
+    return redirect(url_for("login"))
+
 
 @app.route("/py4e/update/<username>", methods=["GET", "POST"])
 def update(username):
