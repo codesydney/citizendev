@@ -21,10 +21,10 @@
             height: auto;
         }
         .testimonial {
-            max-width: 100%; /* Ensures the image is responsive */
-            height: auto;    /* Maintains aspect ratio */
-            display: block;  /* Ensures the image behaves as a block element */
-            margin: 0 auto;  /* Centers the image if needed */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }        
         .about-section {
             margin-top: 30px;
@@ -33,6 +33,16 @@
             border-radius: 10px;
         }        
     </style>    
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            if (username.indexOf("@") !== -1) { // Check if @ is present
+                alert("Username must not contain '@' symbol.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -52,7 +62,7 @@
                 Invalid or duplicate username or password!
             </div>
         {% endif %}
-        <form method="post">
+        <form method="post" onsubmit="return validateForm()">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" required>
@@ -70,6 +80,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>The Citizen Developer Programme</h2>
+                    <img src="{{ url_for('static', filename='plot.png') }}" alt="Plot" />
                 </div>
             </div>
             <br/>
@@ -137,18 +148,7 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- CD Journey -->
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>Typical CitizenDev Journey</h5>                    
-                    <img src="/static/testimonial.png" alt="Logo" class="testimonial">
-                </div>
-            </div>
-
         </div>
-        
-
     </div>
 </body>
 </html>
